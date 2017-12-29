@@ -31,7 +31,8 @@ compileJava {
     options.encoding = "UTF-8"
     options.compilerArgs += [
             "--add-modules", "java.xml.ws.annotation"
-        ]
+    ]
+}
 
 dependencies {
     // springboot
