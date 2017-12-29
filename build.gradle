@@ -21,6 +21,18 @@ repositories {
     mavenCentral()
 }
 
+compileJava {
+    sourceCompatibility = 9
+    targetCompatibility = 9
+
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+
+    options.encoding = "UTF-8"
+    options.compilerArgs += [
+            "--add-modules", "java.xml.ws.annotation"
+        ]
+
 dependencies {
     // springboot
 //    compile('org.springframework.boot:spring-boot-starter-data-jpa')
