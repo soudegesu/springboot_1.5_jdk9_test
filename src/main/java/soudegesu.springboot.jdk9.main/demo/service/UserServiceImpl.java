@@ -1,6 +1,6 @@
-package com.example.soudegesu.demo.service;
+package soudegesu.springboot.jdk9.main.demo.service;
 
-import com.example.soudegesu.demo.model.User;
+import soudegesu.springboot.jdk9.main.demo.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

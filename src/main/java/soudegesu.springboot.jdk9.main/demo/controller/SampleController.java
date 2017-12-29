@@ -1,7 +1,7 @@
-package com.example.soudegesu.demo.controller;
+package soudegesu.springboot.jdk9.main.demo.controller;
 
-import com.example.soudegesu.demo.model.User;
-import com.example.soudegesu.demo.service.UserService;
+import soudegesu.springboot.jdk9.main.demo.model.User;
+import soudegesu.springboot.jdk9.main.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
