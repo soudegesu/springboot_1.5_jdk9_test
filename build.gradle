@@ -5,57 +5,85 @@ buildscript {
 
     repositories {
         maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
             url 'https://repo.spring.io/libs-milestone'
+        }
+        maven {
+            url 'https://repo.spring.io/libs-snapshot'
         }
         mavenCentral()
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
+plugins {
+    id 'idea'
+    id 'java-library'
+    id 'application'
+}
 
-apply plugin: 'idea'
-apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-compileJava {
-    sourceCompatibility = 9
-    targetCompatibility = 9
-
-    options.fork = true
-    options.forkOptions.executable = 'javac'
-
-    options.encoding = "UTF-8"
-//    options.compilerArgs += [
-//        "--add-modules", "java.xml.ws.annotations"
-//    ]
-}
-
-repositories {
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
-    }
-    mavenCentral()
-}
+mainClassName = "soudegesu.springboot.jdknine.main.DemoApplication"
 
 dependencies {
     // springboot
 //    compile('org.springframework.boot:spring-boot-starter-data-jpa')
 //    compile('org.springframework.boot:spring-boot-starter-security')
 //    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+
+    implementation ('org.springframework.boot:spring-boot-starter-web:2.0.0.M7') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+
+    implementation 'org.springframework.boot:spring-boot-starter-jetty:2.0.0.M7'
 
     // database
 //    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+//        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
 
 //    testCompile('org.springframework.boot:spring-boot-starter-test')
 //    testCompile('org.springframework.security:spring-security-test')
 }
+
+
+afterEvaluate {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
+        mavenCentral()
+    }
+
+    compileJava {
+        sourceCompatibility = 9
+        targetCompatibility = 9
+
+        doFirst {
+            options.fork = true
+            options.forkOptions.executable = 'javac'
+            options.sourcepath = files(sourceSets.main.java.srcDirs)
+
+            options.encoding = "UTF-8"
+            options.compilerArgs += [
+                    "--module-path", classpath.asPath
+            ]
+            classpath = files()
+
+        }
+    }
+}
+
 
 task wrapper (type: Wrapper){
     gradleVersion = '4.4'
