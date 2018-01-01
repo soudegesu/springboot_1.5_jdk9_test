@@ -1,4 +1,4 @@
-package soudegesu.springboot.jdk9.main.demo.model;
+package soudegesu.springboot.jdknine.main.demo.model;
 
 //import lombok.Getter;
 //import lombok.Setter;

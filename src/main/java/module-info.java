@@ -1,5 +1,5 @@
-module soudegesu.springboot.jdk9.main {
-    exports soudegesu.springboot.jdk9.main.demo;
+module soudegesu.springboot.jdknine.main {
+    exports soudegesu.springboot.jdknine.main.demo;
 
 //    requires static lombok;
 //    requires java.xml.ws;
