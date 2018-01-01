@@ -1,10 +1,10 @@
 module soudegesu.springboot.jdk9.main {
     exports soudegesu.springboot.jdk9.main.demo;
 
-    requires static lombok;
-    requires java.xml.ws;
-    requires java.xml.ws.annotation;
-    requires java.xml.bind;
+//    requires static lombok;
+//    requires java.xml.ws;
+//    requires java.xml.ws.annotation;
+//    requires java.xml.bind;
 
     requires spring.web;
     requires spring.beans;
