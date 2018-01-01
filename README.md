@@ -5,3 +5,11 @@ This repository is test repository for migration jdk9 with springboot 1.5.x
 This repo uses..
 * jdk 9
 * gradle 4.4
+* maven 3.5.2
+
+# Execution
+* run with maven
+
+```
+./mvnw clean spring-boot:run
+```

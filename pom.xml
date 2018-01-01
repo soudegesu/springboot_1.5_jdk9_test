@@ -27,14 +27,6 @@
         <start-class>soudegesu.springboot.jdknine.main.DemoApplication</start-class>
     </properties>
 
-    <!--
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.M7</version>
-    </parent>
-    -->
-
     <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -86,11 +78,14 @@
     </dependencyManagement>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -101,26 +96,35 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
+                <!--
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>jcl-over-slf4j</artifactId>
                 </exclusion>
-                <!-- Exclude Tomacat . Latest Spring Snapshot broke it  -->
+                -->
+
+                <!-- Exclude Tomacat . Latest Spring Snapshot broke it -->
+
+                <!--
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
+                -->
             </exclusions>
         </dependency>
         <!-- Include Jetty. Tomcat seems to have real problems -->
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
+        -->
         <!--
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -129,22 +133,28 @@
             </dependency>
             -->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-jcl -->
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jcl</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
+        -->
     </dependencies>
 
     <build>
