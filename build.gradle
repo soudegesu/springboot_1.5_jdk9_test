@@ -1,9 +1,19 @@
 buildscript {
     ext {
-        springBootVersion = '1.5.9.RELEASE'
+        springBootVersion = '2.0.0.M7'
+//        springBootVersion = '1.5.9.RELEASE'
     }
 
     repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
+        maven {
+            url 'https://repo.spring.io/libs-snapshot'
+        }
         mavenCentral()
     }
 
@@ -12,24 +22,35 @@ buildscript {
     }
 }
 
-apply plugin: 'idea'
-apply plugin: 'java'
-apply plugin: 'java-library'
+plugins {
+    id 'idea'
+    id 'java-library'
+    id 'application'
+}
+
 apply plugin: 'org.springframework.boot'
 
+mainClassName = "soudegesu.springboot.jdknine.main.demo.DemoApplication"
 
 repositories {
     mavenCentral()
 }
 
 afterEvaluate {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
+        mavenCentral()
+    }
     compileJava {
         sourceCompatibility = 9
         targetCompatibility = 9
 
         doFirst {
             options.fork = true
-            options.forkOptions.executable = "javac"
+            options.forkOptions.executable = 'javac'
             options.sourcepath = files(sourceSets.main.java.srcDirs)
 
             options.encoding = "UTF-8"
@@ -41,16 +62,21 @@ afterEvaluate {
     }
 }
 
+ext {
+    springBootVersion = '2.0.0.M7'
+//        springBootVersion = '1.5.9.RELEASE'
+}
+
 dependencies {
     // springboot
 //    compile('org.springframework.boot:spring-boot-starter-data-jpa')
 //    compile('org.springframework.boot:spring-boot-starter-security')
 //    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    implementation('org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE') {
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
         exclude module: "spring-boot-starter-tomcat"
     }
 
-    implementation "org.springframework.boot:spring-boot-starter-jetty:1.5.9.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
     // database
 //    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
 
