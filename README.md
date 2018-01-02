@@ -7,8 +7,7 @@ This repo uses..
 * gradle 4.4
 
 # In conclusion
-1. we can run springboot 1.5.x application on jdk9 without JPMS. 
-2. we *can not* compile when we use JPMS. 
+1. we can run springboot both 1.5.x and 2.0.0.x(Snapshot)application on jdk9 without JPMS. 
   
 
 # Execute Springboot Application
