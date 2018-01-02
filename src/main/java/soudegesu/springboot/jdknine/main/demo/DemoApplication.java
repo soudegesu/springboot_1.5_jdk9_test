@@ -1,4 +1,4 @@
-package com.example.soudegesu.demo;
+package soudegesu.springboot.jdknine.main.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

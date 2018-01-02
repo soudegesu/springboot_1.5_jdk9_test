@@ -28,6 +28,8 @@ hs_err_pid*
 *.iml
 
 # Build Project
+.mvn
 .gradle
 out
 build
+target
