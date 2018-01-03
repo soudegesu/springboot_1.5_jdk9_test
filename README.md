@@ -12,7 +12,7 @@ This repo uses..
 # TODO Next
 1. ~~run `spring-boot-starter-web:1.5.9.RELEASE` with JDK 9~~ (done)
 2. ~~run `spring-boot-starter-web:2.0.0.M7` with JDK 9~~ (done)
-3. run with `spring-boot-starter-thymeleaf`
+3. ~~run `spring-boot-starter-thymeleaf:2.0.0M7` with JDK9~~ (done, however 2.0.0.M7 only)
 4. run with `spring-boot-starter-data-jpa`  
 
 # Execute Springboot Application
