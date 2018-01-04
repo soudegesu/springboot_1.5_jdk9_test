@@ -31,8 +31,6 @@ plugins {
 
 apply plugin: 'org.springframework.boot'
 
-mainClassName = "soudegesu.springboot.jdknine.main.demo.DemoApplication"
-
 repositories {
     mavenCentral()
 }
@@ -45,6 +43,7 @@ afterEvaluate {
         }
         mavenCentral()
     }
+
     compileJava {
         sourceCompatibility = 9
         targetCompatibility = 9
@@ -57,6 +56,21 @@ afterEvaluate {
             options.encoding = "UTF-8"
             options.compilerArgs += [
                     '--module-path', classpath.asPath,
+            ]
+            classpath = files()
+        }
+    }
+
+    springBoot {
+        mainClassName = "soudegesu.springboot.jdknine.main.demo.DemoApplication"
+    }
+
+    bootRun {
+        doFirst {
+            jvmArgs += [
+                    "--module-path", classpath.asPath,
+                    "--add-modules", "java.sql",
+                    "--module", "soudegesu.springboot.jdknine.main.demo/soudegesu.springboot.jdknine.main.demo.DemoApplication"
             ]
             classpath = files()
         }
