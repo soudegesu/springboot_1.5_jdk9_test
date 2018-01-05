@@ -1,4 +1,4 @@
-module soudegesu.springboot.jdknine.main.demo {
+open module soudegesu.springboot.jdknine.main.demo {
 
 //    requires static lombok;
 //    requires java.xml.ws;
@@ -10,9 +10,9 @@ module soudegesu.springboot.jdknine.main.demo {
     requires spring.boot.autoconfigure;
     requires spring.boot;
 
-    opens soudegesu.springboot.jdknine.main.demo;
-    opens soudegesu.springboot.jdknine.main.demo.controller;
-    opens soudegesu.springboot.jdknine.main.demo.model;
-    opens soudegesu.springboot.jdknine.main.demo.service;
-    exports soudegesu.springboot.jdknine.main.demo;
+//    opens soudegesu.springboot.jdknine.main.demo;
+//    opens soudegesu.springboot.jdknine.main.demo.controller;
+//    opens soudegesu.springboot.jdknine.main.demo.model;
+//    opens soudegesu.springboot.jdknine.main.demo.service;
+//    exports soudegesu.springboot.jdknine.main.demo;
 }
