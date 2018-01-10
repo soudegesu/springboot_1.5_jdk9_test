@@ -70,7 +70,8 @@ afterEvaluate {
             jvmArgs += [
                     "--module-path", classpath.asPath,
                     "--add-modules", "java.sql",
-                    "--module", "soudegesu.springboot.jdknine.main.demo/soudegesu.springboot.jdknine.main.demo.DemoApplication"
+                    "--module", "soudegesu.springboot.jdknine.main.demo/soudegesu.springboot.jdknine.main.demo.DemoApplication",
+                    "-X"
             ]
             classpath = files()
         }
