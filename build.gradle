@@ -55,7 +55,6 @@ afterEvaluate {
 
             options.encoding = "UTF-8"
             options.compilerArgs = [
-//                    '--module-source-path', sourceSets.main.java.srcDirs,
                     '--module-path', classpath.asPath,
             ]
             classpath = files()
@@ -70,10 +69,7 @@ afterEvaluate {
         doFirst {
             jvmArgs += [
                     "--module-path", classpath.asPath,
-                    "--add-modules", "java.sql",
-//                    "--add-exports", "java.sql/java.sql=ALL-UNNAMED",
-//                    "--add-reads", "java.sql=ALL-UNNAMED",
-//                    "--add-modules", "java.xml.bind",
+                    "--add-modules", "java.sql,java.instrument",
                     "--module", "soudegesu.springboot.jdknine.main.demo/soudegesu.springboot.jdknine.main.demo.DemoApplication",
                     "-X"
             ]
@@ -90,6 +86,7 @@ ext {
 
 dependencies {
     // springboot
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}") {
         exclude module: "javax.transaction-api"
     }
@@ -101,6 +98,9 @@ dependencies {
 
     implementation "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
     // database
+    // https://mvnrepository.com/artifact/org.hsqldb/hsqldb
+    implementation group: 'org.hsqldb', name: 'hsqldb', version: '2.4.0'
+
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok

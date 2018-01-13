@@ -16,4 +16,6 @@ module soudegesu.springboot.jdknine.main.demo {
     opens soudegesu.springboot.jdknine.main.demo.controller;
     opens soudegesu.springboot.jdknine.main.demo.model;
     opens soudegesu.springboot.jdknine.main.demo.service;
+    opens soudegesu.springboot.jdknine.main.demo.entity;
+    opens soudegesu.springboot.jdknine.main.demo.repository;
 }

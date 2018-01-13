@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import soudegesu.springboot.jdknine.main.demo.entity.UserEntity;
 import soudegesu.springboot.jdknine.main.demo.model.User;
 import org.springframework.stereotype.Service;
-import soudegesu.springboot.jdknine.main.demo.respository.UserRepository;
+import soudegesu.springboot.jdknine.main.demo.repository.UserRepository;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsers() {
 
-        List<UserEntity> entities = userRepository.findAll();
+        userRepository.findAll();
 
         List<User> users = new ArrayList<>();
         User user = new User();
