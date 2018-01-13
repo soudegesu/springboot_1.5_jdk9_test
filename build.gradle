@@ -70,7 +70,7 @@ afterEvaluate {
         doFirst {
             jvmArgs += [
                     "--module-path", classpath.asPath,
-//                    "--add-modules", "java.sql",
+                    "--add-modules", "java.sql",
 //                    "--add-exports", "java.sql/java.sql=ALL-UNNAMED",
 //                    "--add-reads", "java.sql=ALL-UNNAMED",
 //                    "--add-modules", "java.xml.bind",
@@ -90,7 +90,9 @@ ext {
 
 dependencies {
     // springboot
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}") {
+        exclude module: "javax.transaction-api"
+    }
 //    compile('org.springframework.boot:spring-boot-starter-security')
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
